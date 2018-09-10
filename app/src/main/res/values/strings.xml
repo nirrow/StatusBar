@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">StatusBar</string>
+    <string-array name="themes_name">
+        <item>默认状态栏</item>
+        <item>透明状态栏</item>
+        <item>透明状态栏适配屏幕</item>
+        <item>透明状态栏下单个View适配屏幕</item>
+    </string-array>
+
+    <array name="themes_value">
+        <item>@style/AppTheme</item>
+        <item>@style/AppTheme.TranslucentStatus</item>
+        <item>@style/AppTheme.TranslucentStatus.FitSystemWindow</item>
+        <item>@style/AppTheme.TranslucentStatus</item>
+    </array>
+    <string-array name="explain">
+        <item>默认主题下的Activity，不解释</item>
+        <item>状态栏设置为透明状态，可以看到，文字显示在了状态栏的下方，一般来说，这还不是我们需要的最终结果</item>
+        <item>状态栏透明的情况下，将fitSystemWindow开启，这时文字显示到了状态栏的下方。这个效果跟把fitSystemWindow设置到根布局是一样的效果，即根布局本身是充满整个屏幕的，但是根布局内部的子view只能从状态栏下方开始绘制。</item>
+        <item>终极状态，不仅文字显示在状态栏的下方，根布局的子view依然从屏幕顶端开始绘制。注意TextView的高度是wrap_content的。fitSystemWindow会给View设置一个高度为状态栏高度的padding，所以如果TextView设置为固定高度的话，文字可能由于padding的设置而导致显示不全哦。所以如果要显示固定高度的控件，在设置fitSystemWindow的前提下，控件的高度属性值应该设置为预期的固定高度+fitSystemWindow引入的padding。拿toolbar举例，如果toolbar默认高度是56dp，状态栏高25dp，若要状态栏能正常显示，状态栏的高度就应该设置为81dp，或者wrap_content。</item>
+    </string-array>
+</resources>
